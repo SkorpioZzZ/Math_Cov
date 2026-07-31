@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-contact.css">
+    <script src="main.js" defer></script>
+    
+    <title>Math Covering - Contact</title>
+
+     <!-- Police Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Police Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <a href="../index.html" class="logo">
+                Math Covering
+            </a>
+
+            <button class="menu-toggle">
+                ☰
+            </button> 
+        </div>
+        
+        <nav class="menu">
+            <a href="../index.html">Accueil</a>
+            <a href="../index.html#services">Services</a>
+            <a href="../index.html#project">Projet</a>
+            <a href="../Tarifs/tarif.html">Tarif</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="contact">
+    <div class="contact-container">
+        <h2>Demandez votre devis</h2>
+        <p>Parlez-nous de votre projet, nous vous répondrons rapidement.</p>
+
+        <form id="devis-form" action="#" method="POST">
+            <div class="input-group">
+                <label for="nom">Votre nom</label>
+                <input 
+                    id="nom"
+                    type="text" 
+                    name="nom" 
+                    placeholder="Jean" 
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="email">Votre email</label>
+                <input 
+                    id="email" 
+                    type="email" 
+                    name="email" 
+                    placeholder="monEmail@mail.fr" 
+                    required
+                    >
+            </div>
+
+            <div class="input-group">
+                <label for="telephone">Votre numéro de téléphone</label>
+                <input 
+                    id="telephone" 
+                    type="tel" 
+                    name="telephone" 
+                    placeholder="06 12 34 56 78"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="prestation">Veuillez choisir votre prestation</label>
+                <select name="service">
+                    <option value="">
+                        Choisissez une prestation
+                    </option>
+
+                    <option>
+                        Covering complet
+                    </option>
+
+                    <option>
+                        Covering partiel
+                    </option>
+
+                    <option>
+                        Déchromage
+                    </option>
+
+                    <option>
+                        PPF
+                    </option>
+
+                    <option>
+                        Vitres teintées
+                    </option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="message">Description de votre projet</label>
+                <textarea id="message" name="message" rows="6" placeholder="Décrivez votre projet..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Demander un devis</button>
+
+        </form>
+        <p id="confirmation"></p>
+    </div>
+</section>
+</body>
+</html>

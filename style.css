@@ -1,0 +1,477 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.presentation::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+:root {
+  --background: #0a0a0a;
+  --surface: #151515;
+  --text: #f5f5f5;
+  --accent: #b7e230;
+  --gold: #c8a24d;
+}
+
+.services,
+.project,
+.maps {
+    padding: 80px 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(10, 10, 10, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-family: "Poppins", sans-serif;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.header a:hover {
+    color: var(--accent);
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+::selection {
+    background: #B7E230;
+    color: #0A0A0A;
+}
+
+.demand_devis {
+    display: inline-block;
+    margin-top: 20px;
+    background: var(--accent);
+    color: #0a0a0a;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.demand-devis:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(183, 226, 48, 0.4)
+}
+
+video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.presentation {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.presentation span {
+    background: linear-gradient(to right, #B7E230, #4e8c1c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    text-align: left;
+    color: white;
+
+    margin-left: 50px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    max-width: 900px;
+    text-align: flex-start;
+    margin: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services p {
+    margin-bottom: 80px;
+}
+
+.services h2 {
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.detailing h3 {
+    font-size: 1.5em;
+}
+.detailing p {
+    font-size: 1.1em;
+    margin-top: 3%;
+}
+
+.covering h3 {
+    font-size: 1.5em;
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+.covering p {
+    font-size: 1.1em;;
+    margin-bottom: 20px;
+}
+
+.galerie_detail {
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Met les photos en colonne */
+    gap: 20px; /* Espace entre les photos */
+    width: 80%; /* Largeur de la colonne */
+    margin-top: 30px; /* Espace au-dessus */
+}
+
+.card_detail {
+    position: relative; /* Sert de repère pour l’overlay */
+    overflow: hidden; /* Cache ce qui dépasse */
+    border-radius: 15px; /* Arrondit les coins */
+}
+
+.card_detail img {
+    width: 100%; /* Image prend toute la largeur */
+    height: 275px; /* Hauteur de l’image */
+    object-fit: cover; /* Image remplie sans être déformée */
+    display: block; /* Supprime l’espace parasite sous l’image */
+}
+
+.overlay1_detail {
+    position: absolute; /* Place le texte par-dessus l’image */
+    top: 0; /* Collé en haut */
+    left: 0; /* Collé à gauche */
+    width: 100%; /* Prend toute la largeur */
+    height: 100%; /* Prend toute la hauteur */
+
+    background: rgba(0, 0, 0, 0.7); /* Fond noir transparent */
+    color: white; /* Texte blanc */
+
+    display: flex; /* Active Flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+
+    text-align: center; /* Centre le texte */
+    padding: 20px; /* Espace intérieur */
+
+    opacity: 0; /* Cache le texte */
+    transition: 0.3s; /* Animation douce */
+}
+
+.card_detail:hover .overlay1_detail {
+    opacity: 1; /* Affiche le texte au survol */
+}
+
+.galerie_cov {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    width: 80%;
+    margin-top: 30px;
+}
+
+.card_cov {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 220px;
+}
+
+.cov_big {
+    grid-row: span 2;
+    height: 460px;
+}
+
+.card_cov img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay_cov {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.65);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card_cov:hover .overlay_cov {
+    opacity: 1;
+}
+
+.project {
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Met Nissan puis Mazda en colonne */
+    align-items: center; /* Centre les blocs */
+}
+
+.project h2 {
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.project p {
+    margin-bottom: 80px;
+}
+.nissan, .mazda {
+    display: flex; /* Image et texte côte à côte */
+    align-items: center; /* Centre verticalement */
+    gap: 50px; /* Espace entre image et texte */
+    width: 90%; /* Largeur du bloc */
+}
+
+.mazda {
+    flex-direction: row-reverse; /*image à droite, texte à gauche */
+    margin-top: 30px;
+}
+
+.nissan img, .mazda img {
+    width: 55%; /* Image plus grande que le texte */
+    height: 400px; /*Hauteur fixe */
+    object-fit: cover; /* Remplis sans deformer */
+    border-radius: 15px; /* Largeur du texte */
+}
+
+.project-text {
+    width: 45%; /* Largeur du texte */
+}
+
+.maps {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.card_detail,
+.card_cov,
+.nissan img,
+.mazda img {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card_detail img,
+.card_cov img,
+.nissan img,
+.mazda img {
+    transition: transform 0.5s ease;
+}
+
+.card_detail:hover img,
+.card_cov:hover img,
+.nissan img:hover,
+.mazda img:hover {
+    transform: scale(1.05);
+}
+
+.services h2,
+.project h2,
+.maps h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, var(--accent), var(--gold));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.services h2::after,
+.project h2::after,
+.maps h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: var(--accent);
+    margin: 15px auto 0;
+    border-radius: 50px;
+}
+
+.services,
+.project,
+.maps {
+    background: linear-gradient(180deg, #0a0a0a, #111111);
+}
+
+.nissan,
+.mazda {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.maps {
+    text-align: center;
+}
+
+.maps iframe {
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:834px){
+
+    .header {
+        flex-direction: column;
+        gap: 30px;
+        position: sticky;
+    }
+
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .menu {
+        display: none;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-content {
+        margin-left: 0;
+    }
+
+    .hero-content h1 {
+
+        /* clamp(taille minimum, taille flexible, taille maximum)*/
+        font-size: clamp(2rem, 5vw, 4rem)
+    }
+
+    .presentation {
+        height: 80vh;
+    }
+
+    .nissan, .mazda {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .nissan img, .mazda img {
+        width: 100%;
+    }
+
+    .project-text {
+        width: 100%;
+    }
+
+    .galerie_cov {
+        grid-template-columns: 1fr;
+    }
+
+    .menu.active {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-size: 1.5em;
+    }
+}

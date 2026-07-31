@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --background: #0a0a0a;
+  --surface: #151515;
+  --text: #f5f5f5;
+  --accent: #b7e230;
+  --gold: #c8a24d;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(10, 10, 10, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-family: "Poppins", sans-serif;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.header a:hover {
+    color: var(--accent);
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+}
+
+.tarif h1 {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.tarif p {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.tarif_intro {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tarif_intro h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tarif {
+    display: grid;
+    grid-template-columns: 650px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    height: auto;   
+}
+
+.tarif-page {
+    background: linear-gradient(#0a0a0a, #111111);
+    padding: 50px 0 100px;
+}
+
+.card {
+    display: grid;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: relative;
+    padding: 20px;
+    border-radius: 12px;
+    background: #111;
+    transition: .5s;
+    border: 1px solid #b7e230;
+    width: 650px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 50px rgba(202, 138, 4, .15);
+}
+
+.card h3 {
+    color: white;
+    transition: .3s;
+}
+
+.card:hover h3{
+    color: var(--accent);
+}
+
+.card > p:not(.detail_prest) {
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.tarif_prest {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid var(--text);
+    transition: .5s;
+    font-size: 0.8em;
+    font-family: "Montserrat", sans-serif;
+}
+
+.tarif_prest:hover {
+    background-color: var(--accent);
+    box-shadow: 0 0 15px rgba(202,138,4,.15);
+}
+
+.detail_prest {
+    font-size: 0.6em;
+    font-style: italic;
+    margin-top: 15px;
+    text-align: center;
+    color: #aaa;
+}
+
+@media(max-width:834px){
+
+    .header {
+        flex-direction: column;
+        gap: 40px;
+        position: sticky;
+    }
+
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .menu {
+        display: none;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu.active {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-size: 1.5em;
+    }
+
+    .tarif {
+        display: flex;
+        gap: 20px;
+    }
+
+    .tarif h1 {
+        margin: 0;
+    }
+
+    .tarif-page {
+        padding-top: 30px;
+    }
+}
