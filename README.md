@@ -36,4 +36,7 @@ Ce projet est un site vitrine conçu à titre de démonstration pour une future 
 - Utilisation de Git pour gérer les versions du projet et suivre son évolution grâce aux commits.
 - Publication d'un projet sur GitHub.
 
-## Captures d'écran
+## Comment le voir ?
+
+- **Site internet :** https://skorpiozzz.github.io/Math_Cov/
+- **Code Source :** https://github.com/SkorpioZzZ/Math_Cov
