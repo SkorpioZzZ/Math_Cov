@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-contact.css">
     <script src="main.js" defer></script>
-    
-    <title>Math Covering - Contact</title>
+
+    <meta name="description" content="Demandez votre devis personnalisé pour un covering, un detailing ou une protection PPF dans le Jura.">
+    <title>Demander un devis | Math Covering</title>
 
      <!-- Police Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,83 +26,100 @@
                 Math Covering
             </a>
 
-            <button class="menu-toggle">
-                ☰
-            </button> 
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation-principale">
+                <span aria-hidden="true">☰</span>
+            </button>
         </div>
-        
-        <nav class="menu">
+
+        <nav class="menu" id="navigation-principale" aria-label="Navigation principale">
             <a href="../index.html">Accueil</a>
             <a href="../index.html#services">Services</a>
             <a href="../index.html#project">Projet</a>
             <a href="../Tarifs/tarif.html">Tarif</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" aria-current="page">Contact</a>
         </nav>
     </header>
 
-    <section class="contact">
+    <main>
+    <section class="contact" aria-labelledby="contact-title">
     <div class="contact-container">
-        <h2>Demandez votre devis</h2>
-        <p>Parlez-nous de votre projet, nous vous répondrons rapidement.</p>
+        <div class="contact-intro">
+            <p class="eyebrow">Un projet en tête ?</p>
+            <h1 id="contact-title">Demandez votre devis</h1>
+            <p>Parlez-nous de votre projet, nous vous répondrons rapidement avec une proposition adaptée à votre véhicule.</p>
+            <p class="demo-notice"><strong>Site de démonstration :</strong> ce formulaire est fictif et aucune donnée n'est réellement envoyée.</p>
+            <div class="contact-details">
+                <div>
+                    <span class="detail-icon" aria-hidden="true">✦</span>
+                    <p><strong>Réponse rapide</strong><br>Nous revenons vers vous sous 24 h ouvrées.</p>
+                </div>
+                <div>
+                    <span class="detail-icon" aria-hidden="true">✆</span>
+                    <p><strong>Un échange personnalisé</strong><br>Chaque projet est étudié sur mesure.</p>
+                </div>
+            </div>
+        </div>
 
-        <form id="devis-form" action="#" method="POST">
+        <form id="devis-form" action="#" method="POST" novalidate>
             <div class="input-group">
                 <label for="nom">Votre nom</label>
-                <input 
+                <input
                     id="nom"
-                    type="text" 
-                    name="nom" 
-                    placeholder="Jean" 
+                    type="text"
+                    name="nom"
+                    placeholder="Jean"
+                    autocomplete="name"
                     required
                 >
             </div>
 
             <div class="input-group">
                 <label for="email">Votre email</label>
-                <input 
-                    id="email" 
-                    type="email" 
-                    name="email" 
-                    placeholder="monEmail@mail.fr" 
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="monEmail@mail.fr"
+                    autocomplete="email"
                     required
                     >
             </div>
 
             <div class="input-group">
                 <label for="telephone">Votre numéro de téléphone</label>
-                <input 
-                    id="telephone" 
-                    type="tel" 
-                    name="telephone" 
+                <input
+                    id="telephone"
+                    type="tel"
+                    name="telephone"
                     placeholder="06 12 34 56 78"
+                    autocomplete="tel"
+                    inputmode="tel"
                     required
                 >
             </div>
 
             <div class="input-group">
-                <label for="prestation">Veuillez choisir votre prestation</label>
-                <select name="service">
-                    <option value="">
-                        Choisissez une prestation
-                    </option>
+                <label for="prestation">Prestation souhaitée</label>
+                <select id="prestation" name="service" required>
+                    <option value="" selected disabled>Choisissez une prestation</option>
 
-                    <option>
+                    <option value="Covering complet">
                         Covering complet
                     </option>
 
-                    <option>
+                    <option value="Covering partiel">
                         Covering partiel
                     </option>
 
-                    <option>
+                    <option value="Déchromage">
                         Déchromage
                     </option>
 
-                    <option>
+                    <option value="PPF">
                         PPF
                     </option>
 
-                    <option>
+                    <option value="Vitres teintées">
                         Vitres teintées
                     </option>
                 </select>
@@ -112,11 +130,14 @@
                 <textarea id="message" name="message" rows="6" placeholder="Décrivez votre projet..." required></textarea>
             </div>
 
-            <button type="submit" class="submit-btn">Demander un devis</button>
+            <p class="form-note">Démonstration uniquement : aucune donnée n'est enregistrée ni envoyée.</p>
+            <button type="submit" class="submit-btn">Simuler l'envoi <span aria-hidden="true">→</span></button>
 
         </form>
         <p id="confirmation"></p>
     </div>
-</section>
+    </section>
+    </main>
+    <footer class="footer">Math Covering <span aria-hidden="true">·</span> Covering automobile premium dans le Jura</footer>
 </body>
 </html>
