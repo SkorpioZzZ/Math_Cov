@@ -13,27 +13,40 @@
 }
 
 .header {
-    display: flex;
     align-items: center;
+    background: rgba(9, 10, 8, 0.82);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
     justify-content: space-between;
-    padding: 20px 50px;
+    padding: 20px clamp(24px, 6vw, 80px);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    background: rgba(10, 10, 10, 0.65);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-family: "Poppins", sans-serif;
+    z-index: 10;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
-.header a {
-    color: white;
+.header a,
+.menu a {
+    color: var(--text);
     text-decoration: none;
-    transition: 0.3s;
 }
 
-.header a:hover {
+.logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.menu a {
+    color: #aeb4a7;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
     color: var(--accent);
 }
 
@@ -43,7 +56,12 @@
 }
 
 .menu-toggle {
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    cursor: pointer;
     display: none;
+    font-size: 1.5rem;
 }
 
 html {
@@ -71,30 +89,41 @@ body {
     flex-direction: column;
     align-items: stretch;
     text-align: center;
-    margin-bottom: 30px;
+    margin: 42px auto 40px;
+    max-width: 720px;
 }
 
 .tarif_intro h2 {
-    font-size: 2rem;
+    background: linear-gradient(to right, var(--accent), var(--gold));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.1;
     margin-bottom: 15px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
 
+.tarif_intro p {
+    color: #aeb4a7;
+    line-height: 1.7;
+}
+
 .tarif {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: center;
-    gap: 50px;
+    gap: 28px;
     height: auto;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1100px;
     padding: 0 16px;
 }
 
 .tarif-page {
     background: linear-gradient(#0a0a0a, #111111);
-    padding: 50px 0 100px;
+    padding: clamp(64px, 8vw, 110px) 0 100px;
 }
 
 .card {
@@ -102,14 +131,17 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     position: relative;
-    padding: 20px;
-    border-radius: 12px;
-    background: #111;
+    background: linear-gradient(145deg, #171817, #101110);
+    border-radius: 18px;
+    display: flex;
+    height: 100%;
+    padding: 28px;
     transition: .5s;
-    border: 1px solid #b7e230;
+    border: 1px solid rgba(183, 226, 48, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
     width: 100%;
     height: auto;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .card:hover {
@@ -119,6 +151,10 @@ body {
 
 .card h3 {
     color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
     transition: .3s;
 }
 
@@ -127,6 +163,8 @@ body {
 }
 
 .card > p:not(.detail_prest) {
+    color: #b9beb4;
+    line-height: 1.6;
     margin: 10px 0 20px;
     text-align: center;
 }
@@ -134,11 +172,16 @@ body {
 .tarif_prest {
     display: flex;
     justify-content: space-between;
-    padding: 15px;
-    border: 1px solid var(--text);
+    padding: 13px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
     transition: .5s;
-    font-size: 0.8em;
+    font-size: 0.82em;
     font-family: "Montserrat", sans-serif;
+}
+
+.tarif_prest span:last-child {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .tarif_prest:hover {
@@ -163,42 +206,34 @@ body {
     text-align: center;
 }
 
-@media(max-width:834px){
+@media(max-width:760px){
 
     .header {
-        flex-direction: column;
-        gap: 40px;
-        position: sticky;
+        display: block;
+        padding: 17px 22px;
     }
 
     .header-top {
+        align-items: center;
         display: flex;
         justify-content: space-between;
-        width: 100%;
     }
 
     .menu {
         display: none;
-        width: 100%;
+        gap: 18px;
+        padding: 22px 0 4px;
     }
 
     .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        right: 40px;
-        justify-content: center;
-        align-items: center;
+        display: block;
+        padding: 8px;
     }
 
     .menu.active {
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        font-size: 1.5em;
+        align-items: flex-start;
     }
 
     .tarif h1 {
@@ -207,5 +242,14 @@ body {
 
     .tarif-page {
         padding-top: 30px;
+    }
+
+    .tarif {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 22px;
     }
 }

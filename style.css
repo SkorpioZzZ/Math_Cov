@@ -8,7 +8,9 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.25)),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.7), transparent 60%);
     z-index: 1;
 }
 
@@ -31,34 +33,48 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   background: var(--background);
   color: var(--text);
   font-family: "Poppins", sans-serif;
 }
 
 .header {
-    display: flex;
     align-items: center;
+    background: rgba(9, 10, 8, 0.82);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
     justify-content: space-between;
-    padding: 20px 50px;
+    padding: 20px clamp(24px, 6vw, 80px);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    background: rgba(10, 10, 10, 0.65);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-family: "Poppins", sans-serif;
+    z-index: 10;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
-.header a {
-    color: white;
+.header a,
+.menu a {
+    color: var(--text);
     text-decoration: none;
-    transition: 0.3s;
 }
 
-.header a:hover {
+.menu a {
+    color: #aeb4a7;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
     color: var(--accent);
+}
+
+.logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
 }
 
 .menu {
@@ -67,7 +83,12 @@ body {
 }
 
 .menu-toggle {
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    cursor: pointer;
     display: none;
+    font-size: 1.5rem;
 }
 
 ::selection {
@@ -137,20 +158,22 @@ video {
     text-align: left;
     color: white;
 
-    margin-left: 50px;
-    padding: 20px;
+    margin-left: clamp(24px, 6vw, 80px);
+    padding: 20px 24px;
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    max-width: 900px;
-    text-align: flex-start;
-    margin: 5px;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    max-width: 850px;
+    margin: 5px 0;
     font-family: 'Montserrat', sans-serif;
 }
 
 .hero-content p {
-    font-size: 1.8rem;
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    line-height: 1.6;
+    max-width: 760px;
     margin: 20px 0;
     font-family: 'Poppins', sans-serif;
 }
@@ -159,6 +182,13 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: clamp(64px, 8vw, 110px);
+}
+
+.detailing,
+.covering {
+    max-width: 850px;
+    text-align: center;
 }
 
 .services p {
@@ -179,6 +209,7 @@ video {
 .detailing p {
     font-size: 1.1em;
     margin-top: 3%;
+    line-height: 1.7;
 }
 
 .covering h3 {
@@ -187,7 +218,8 @@ video {
     margin-bottom: 5px;
 }
 .covering p {
-    font-size: 1.1em;;
+    font-size: 1.1em;
+    line-height: 1.7;
     margin-bottom: 20px;
 }
 
@@ -219,17 +251,17 @@ video {
     width: 100%; /* Prend toute la largeur */
     height: 100%; /* Prend toute la hauteur */
 
-    background: rgba(0, 0, 0, 0.7); /* Fond noir transparent */
+    background: linear-gradient(transparent 35%, rgba(0, 0, 0, 0.9));
     color: white; /* Texte blanc */
 
     display: flex; /* Active Flexbox */
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
+    justify-content: flex-end;
+    align-items: flex-start;
 
-    text-align: center; /* Centre le texte */
+    text-align: left;
     padding: 20px; /* Espace intérieur */
 
-    opacity: 0; /* Cache le texte */
+    opacity: 1;
     transition: 0.3s; /* Animation douce */
 }
 
@@ -273,15 +305,15 @@ video {
     position: absolute;
     inset: 0;
 
-    background: rgba(0,0,0,0.65);
+    background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.9));
     color: white;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
 
-    text-align: center;
-    opacity: 0;
+    text-align: left;
+    opacity: 1;
     transition: 0.3s;
 }
 
@@ -364,6 +396,12 @@ video {
     -webkit-text-fill-color: transparent;
 }
 
+.services h2,
+.project h2,
+.maps h2 {
+    line-height: 1.1;
+}
+
 .services h2::after,
 .project h2::after,
 .maps h2::after {
@@ -401,6 +439,17 @@ video {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
+.project-text h3 {
+    color: var(--accent);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+}
+
+.project-text p {
+    line-height: 1.7;
+}
+
 .js .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -412,44 +461,43 @@ video {
     transform: translateY(0);
 }
 
-@media(max-width:834px){
+@media(max-width:760px){
 
     .header {
-        flex-direction: column;
-        gap: 30px;
-        position: sticky;
+        display: block;
+        padding: 17px 22px;
     }
 
     .header-top {
+        align-items: center;
         display: flex;
         justify-content: space-between;
-        width: 100%;
     }
 
     .menu {
         display: none;
-        width: 100%;
+        gap: 18px;
+        padding: 22px 0 4px;
     }
 
     .menu-toggle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: block;
         padding: 8px;
     }
 
     .hero-content {
         margin-left: 0;
+        padding: 24px;
     }
 
     .hero-content h1 {
-
-        /* clamp(taille minimum, taille flexible, taille maximum)*/
-        font-size: clamp(2rem, 5vw, 4rem)
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+        line-height: 1.05;
     }
 
     .presentation {
-        height: 80vh;
+        min-height: 720px;
+        height: 88svh;
     }
 
     .nissan, .mazda {
@@ -460,6 +508,7 @@ video {
 
     .nissan img, .mazda img {
         width: 100%;
+        height: 280px;
     }
 
     .project-text {
@@ -473,15 +522,13 @@ video {
     .menu.active {
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        font-size: 1.5em;
+        align-items: flex-start;
     }
 
     .hero-content p {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        line-height: 1.55;
+        max-width: 34rem;
     }
 
     .galerie_detail,
@@ -495,7 +542,7 @@ video {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #aeb4a7;
     font-size: 0.8rem;
-    padding: 24px;
+    padding: 28px 24px;
     text-align: center;
 }
 
