@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +25,12 @@
                 Math Covering
             </a>
 
-            <button class="menu-toggle">
-                ☰
-            </button> 
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation-principale">
+                <span aria-hidden="true">☰</span>
+            </button>
         </div>
-        
-        <nav class="menu">
+
+        <nav class="menu" id="navigation-principale" aria-label="Navigation principale">
             <a href="../index.html">Accueil</a>
             <a href="../index.html#services">Services</a>
             <a href="../index.html#project">Projet</a>
@@ -44,7 +44,7 @@
             <h2>Nos Tarifs</h2>
             <p>Découvrez nos tarifs compétitifs pour tous nos services de detailing et de covering.</p>
         </div>
-    
+
         <div id="tarif" class="tarif">
             <div class="card">
                     <h3>COVERING</h3>
@@ -180,5 +180,6 @@
             </div>
         </div>
     </section>
+    <footer class="site-footer">Projet fictif réalisé à titre de démonstration.</footer>
 </body>
 </html>

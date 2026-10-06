@@ -1,193 +1,308 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 :root {
-  --background: #0a0a0a;
-  --surface: #151515;
-  --text: #f5f5f5;
-  --accent: #b7e230;
-  --gold: #c8a24d;
+    --background: #090a08;
+    --surface: #151713;
+    --surface-light: #1d201a;
+    --text: #f5f7f1;
+    --muted: #aeb4a7;
+    --accent: #b7e230;
+    --line: rgba(255, 255, 255, 0.1);
 }
 
-html,
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #0a0a0a;
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 50px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    background: rgba(10, 10, 10, 0.65);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    min-height: 100vh;
+    background: radial-gradient(circle at 80% 15%, rgba(183, 226, 48, 0.1), transparent 35%), var(--background);
+    color: var(--text);
     font-family: "Poppins", sans-serif;
 }
 
-.header a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
+.header {
+    align-items: center;
+    backdrop-filter: blur(14px);
+    background: rgba(9, 10, 8, 0.82);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px clamp(24px, 6vw, 80px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.header a:hover {
+.logo,
+.menu a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    color: var(--muted);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
     color: var(--accent);
 }
 
-.menu {
-    display: flex;
-    gap: 30px;
-}
-
 .menu-toggle {
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    cursor: pointer;
     display: none;
-}
-
-.logo{
-    color: white;
-}
-
-.menu {
-    display: flex;
-    gap: 30px;
-}
-
-.menu-toggle {
-    display: none;
-}
-
-.menu:hover{
-    color: #B7E230;
+    font-size: 1.5rem;
 }
 
 .contact {
-    background: #0a0a0a;
-    padding: 100px 20px;
-    color: #fff;
+    padding: clamp(60px, 9vw, 120px) 24px 80px;
 }
 
 .contact-container {
-    max-width: 700px;
+    align-items: start;
+    display: grid;
+    gap: clamp(40px, 8vw, 110px);
+    grid-template-columns: minmax(260px, 0.8fr) minmax(320px, 1.2fr);
     margin: auto;
+    max-width: 1100px;
 }
 
-.contact h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+.contact-intro {
+    padding-top: 18px;
 }
 
-.contact p {
-    text-align: center;
-    color: #bdbdbd;
-    margin-bottom: 40px;
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
 }
 
-.input-group {
+.contact h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    letter-spacing: -0.06em;
+    line-height: 1.03;
+    margin-bottom: 22px;
+}
+
+.contact-intro > p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 420px;
+}
+
+.demo-notice {
+    border-left: 2px solid var(--accent);
+    color: var(--text) !important;
+    font-size: 0.86rem;
+    margin-top: 22px;
+    padding-left: 14px;
+}
+
+.contact-details {
+    border-top: 1px solid var(--line);
+    margin-top: 44px;
+    padding-top: 24px;
+}
+
+.contact-details > div {
+    align-items: flex-start;
+    display: flex;
+    gap: 14px;
     margin-bottom: 20px;
 }
 
-.contact input,
-.contact select,
-.contact textarea {
-    width: 100%;
-    padding: 15px;
-    background: #151515;
-    border: 1px solid #2a2a2a;
-    border-radius: 10px;
-    color: white;
-    font-size: 1rem;
-    transition: 0.3s;
+.detail-icon {
+    color: var(--accent);
+    font-size: 1.3rem;
+    line-height: 1.3;
 }
 
-.contact input:focus,
-.contact select:focus,
-.contact textarea:focus {
-    border-color: #b7e230;
-    box-shadow: 0 0 15px rgba(183, 226, 48, 0.3);
+.contact-details p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.contact-details strong {
+    color: var(--text);
+}
+
+form {
+    background: rgba(21, 23, 19, 0.88);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+    padding: clamp(24px, 4vw, 42px);
+}
+
+.input-group {
+    margin-bottom: 21px;
+}
+
+label {
+    color: var(--text);
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+input,
+select,
+textarea {
+    background: var(--surface-light);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    color: var(--text);
+    font: inherit;
+    padding: 14px 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+}
+
+select:invalid {
+    color: var(--muted);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #737a6c;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(183, 226, 48, 0.14);
     outline: none;
 }
 
-.contact button {
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 10px;
-    background: #b7e230;
-    color: #0a0a0a;
-    font-weight: bold;
-    font-size: 1rem;
+.form-note {
+    color: #7f8679;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    margin: 4px 0 18px;
+}
+
+.submit-btn {
+    background: var(--accent);
+    border: 0;
+    border-radius: 9px;
+    color: #10120d;
     cursor: pointer;
-    transition: 0.3s;
+    font: 700 0.95rem "Poppins", sans-serif;
+    padding: 15px 20px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    width: 100%;
 }
 
-.contact button:hover {
+.submit-btn span {
+    font-size: 1.2rem;
+    margin-left: 8px;
+}
+
+.submit-btn:hover:not(:disabled) {
+    box-shadow: 0 10px 25px rgba(183, 226, 48, 0.2);
     transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(183, 226, 48, 0.4);
 }
 
-.contact p.success {
-    color: #b7e230;
-    font-weight: bold;
+.submit-btn:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+#confirmation {
+    border-radius: 10px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 18px;
     text-align: center;
 }
 
-.contact button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.footer {
+    border-top: 1px solid var(--line);
+    color: #737a6c;
+    font-size: 0.75rem;
+    padding: 22px 24px;
+    text-align: center;
 }
 
-@media(max-width:834px){
-      .header {
-        flex-direction: column;
-        gap: 40px;
-        position: sticky;
+@media (max-width: 760px) {
+    .header {
+        display: block;
+        padding: 17px 22px;
     }
 
     .header-top {
+        align-items: center;
         display: flex;
         justify-content: space-between;
-        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 
     .menu {
         display: none;
-        width: 100%;
-    }
-
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        right: 40px;
-        justify-content: center;
-        align-items: center;
+        gap: 18px;
+        padding: 22px 0 4px;
     }
 
     .menu.active {
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        font-size: 1.5rem;
     }
 
-    .input-group {
-        width: 90%;
+    .contact-container {
+        grid-template-columns: 1fr;
     }
 
-    .contact {
-        padding-top: 30px;
+    .contact-intro {
+        padding-top: 0;
+    }
+
+    .contact-details {
+        margin-top: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
